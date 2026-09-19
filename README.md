@@ -31,6 +31,11 @@
         #toast {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        /* Modal Backdrop Transition */
+        #review-modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
     </style>
 </head>
 <body class="bg-[#0c0d12] text-slate-200 antialiased selection:bg-yellow-500 selection:text-slate-950 relative overflow-x-hidden">
@@ -75,6 +80,7 @@
                 <a href="#services" class="hover:text-yellow-400 transition-colors">Services</a>
                 <a href="#pricing" class="hover:text-yellow-400 transition-colors">Pricing</a>
                 <a href="#workflow" class="hover:text-yellow-400 transition-colors">Workflow</a>
+                <a href="#reviews" class="hover:text-yellow-400 transition-colors">Reviews</a>
                 <a href="#stats" class="hover:text-yellow-400 transition-colors">Stats</a>
                 <a href="https://discord.gg/Ju5UCjJgY" target="_blank" class="bg-yellow-400 hover:bg-yellow-300 text-slate-950 px-5 py-2.5 rounded-xl font-bold transition-all shadow-lg shadow-yellow-500/20 font-heading">
                     Order Now
@@ -461,6 +467,133 @@
         </div>
     </section>
 
+    <!-- Reviews / Testimonials Section -->
+    <section id="reviews" class="py-20 bg-slate-900/30 border-t border-slate-800/80 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 text-xs font-semibold uppercase mb-4">
+                    <i class="fa-solid fa-star"></i> Client Vouches & Reviews
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-3 font-heading">What Our Clients Say</h2>
+                <p class="text-slate-400 text-sm max-w-md mx-auto">Real feedback from server owners who built their network with MS STUDIO.</p>
+            </div>
+
+            <!-- Action Buttons for Reviews -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
+                <button onclick="openReviewModal()" class="w-full sm:w-auto bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-bold px-7 py-3.5 rounded-xl transition-all shadow-lg shadow-yellow-500/20 flex items-center justify-center gap-2 font-heading cursor-pointer">
+                    <i class="fa-solid fa-pen-to-square"></i> Write a Review
+                </button>
+                <a href="https://discord.gg/Ju5UCjJgY" target="_blank" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-bold px-7 py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 font-heading">
+                    <i class="fa-brands fa-discord text-indigo-400"></i> View All Vouches on Discord
+                </a>
+            </div>
+
+            <!-- Sample Review Cards -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-yellow-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-xs leading-relaxed italic mb-6">
+                            "Mash and Shayon setup our custom Lifesteal server within 2 days! TPS stays strictly at 20.0 even during 40+ player fights. Exceptional work!"
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-800/80 pt-4">
+                        <div>
+                            <p class="text-sm font-bold text-white font-heading">Aarav M.</p>
+                            <p class="text-[10px] text-slate-500 font-mono">Lifesteal Owner</p>
+                        </div>
+                        <span class="text-[10px] font-semibold px-2.5 py-1 rounded bg-slate-800 text-yellow-400 border border-slate-700">Custom Setup</span>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-yellow-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-xs leading-relaxed italic mb-6">
+                            "Bought the premade proxy pack for ₹50. Super fast setup and zero configuration issues on Velocity. Highly recommended!"
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-800/80 pt-4">
+                        <div>
+                            <p class="text-sm font-bold text-white font-heading">Rohan_PvP</p>
+                            <p class="text-[10px] text-slate-500 font-mono">Network Admin</p>
+                        </div>
+                        <span class="text-[10px] font-semibold px-2.5 py-1 rounded bg-slate-800 text-amber-400 border border-slate-700">Proxy Pack</span>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-yellow-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-xs leading-relaxed italic mb-6">
+                            "Shayon helped troubleshoot our plugin crashes late at night. Super helpful team and polite support in tickets!"
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-800/80 pt-4">
+                        <div>
+                            <p class="text-sm font-bold text-white font-heading">Toxic_Gamer</p>
+                            <p class="text-[10px] text-slate-500 font-mono">Survival Owner</p>
+                        </div>
+                        <span class="text-[10px] font-semibold px-2.5 py-1 rounded bg-slate-800 text-yellow-400 border border-slate-700">Bug Fixes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Write a Review Modal -->
+    <div id="review-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none">
+        <div class="bg-[#0c0d12] border border-yellow-500/30 rounded-2xl p-6 md:p-8 max-w-lg w-full shadow-2xl relative">
+            <button onclick="closeReviewModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-2xl font-bold text-white font-heading mb-1">Submit Your Review</h3>
+            <p class="text-xs text-slate-400 mb-6">Share your experience working with MS STUDIO.</p>
+
+            <form id="reviewForm" onsubmit="handleReviewSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Discord Username / Name</label>
+                    <input type="text" id="reviewerName" required placeholder="e.g. PlayerOne#1234" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-yellow-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Service / Setup Ordered</label>
+                    <select id="reviewSetup" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-yellow-400">
+                        <option value="Custom Setup">Custom Setup</option>
+                        <option value="Premade Pack">Premade Pack</option>
+                        <option value="Proxy Setup">Proxy Setup</option>
+                        <option value="Optimization / Bug Fix">Optimization / Bug Fix</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Star Rating</label>
+                    <div class="flex gap-2 text-yellow-400 text-xl cursor-pointer" id="star-rating">
+                        <i class="fa-solid fa-star star-btn" onclick="setRating(1)"></i>
+                        <i class="fa-solid fa-star star-btn" onclick="setRating(2)"></i>
+                        <i class="fa-solid fa-star star-btn" onclick="setRating(3)"></i>
+                        <i class="fa-solid fa-star star-btn" onclick="setRating(4)"></i>
+                        <i class="fa-solid fa-star star-btn" onclick="setRating(5)"></i>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Your Feedback</label>
+                    <textarea id="reviewComment" rows="3" required placeholder="Write a few lines about our work..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-yellow-400"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3.5 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-bold rounded-xl text-sm transition-all shadow-lg shadow-yellow-500/20 font-heading cursor-pointer">
+                    Submit Review to Discord
+                </button>
+            </form>
+        </div>
+    </div>
+
     <!-- Stats Section -->
     <section id="stats" class="py-16 bg-slate-900/50 border-y border-slate-800/80 px-6">
         <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -544,6 +677,55 @@
             }).catch(err => {
                 console.error('Failed to copy: ', err);
             });
+        }
+
+        // Modal Controls
+        function openReviewModal() {
+            const modal = document.getElementById('review-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeReviewModal() {
+            const modal = document.getElementById('review-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // Star Rating Selection Logic
+        let currentRating = 5;
+        function setRating(rating) {
+            currentRating = rating;
+            const stars = document.querySelectorAll('#star-rating .star-btn');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('text-yellow-400');
+                    star.classList.remove('text-slate-600');
+                } else {
+                    star.classList.remove('text-yellow-400');
+                    star.classList.add('text-slate-600');
+                }
+            });
+        }
+
+        // Review Submission Handling
+        function handleReviewSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('reviewerName').value;
+            const setup = document.getElementById('reviewSetup').value;
+            const comment = document.getElementById('reviewComment').value;
+
+            closeReviewModal();
+
+            // Toast feedback confirmation
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = "Thank you! Redirecting to Discord...";
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+                // Open Discord to submit review in ticket/vouch channel
+                window.open("https://discord.gg/Ju5UCjJgY", "_blank");
+            }, 2000);
         }
     </script>
 </body>
