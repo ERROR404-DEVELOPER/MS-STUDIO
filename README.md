@@ -95,7 +95,7 @@
         </h1>
         
         <p class="text-base md:text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-            Welcome to <strong class="text-slate-200">MS STUDIO</strong>. Powered by developers <strong>Shayon & Mash</strong>, we craft ultra-optimized, zero-lag Minecraft servers, practice networks, proxy networks, and custom setup configurations.
+            Welcome to <strong class="text-slate-200">MS STUDIO</strong>. Powered by developers <strong> Mash & Shayon</strong>, we craft ultra-optimized, zero-lag Minecraft servers, practice networks, proxy networks, and custom setup configurations.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="#pricing" class="w-full sm:w-auto bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-slate-950 px-8 py-4 rounded-xl font-bold text-base transition-all shadow-xl shadow-yellow-500/20 hover:-translate-y-0.5 font-heading">
